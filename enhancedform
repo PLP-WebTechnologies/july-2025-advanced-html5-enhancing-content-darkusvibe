@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Enhanced Form </title>
+
+</head>
+<body>
+  <header>
+    <h1>Enhanced Form </h1>
+    <p class="note">A semantic, accessible HTML5 form illustrating validation, attributes, lists, tables, and media.</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card" aria-labelledby="form-heading">
+        <h2 id="form-heading">Registration & Order Form</h2>
+        <p class="note">All fields marked <abbr title="required">*</abbr> are required. Labels are associated with inputs for screen readers.</p>
+
+        <form id="enhancedForm" action="#" method="post" enctype="multipart/form-data" novalidate>
+          
+          <fieldset>
+            <legend>Personal Details</legend>
+            <div class="two-col">
+              <div>
+                <label for="firstName">First name <span aria-hidden="true">*</span></label>
+                <input id="firstName" name="firstName" type="text" placeholder="e.g. Jane" required autocomplete="given-name" minlength="2" maxlength="40">
+              </div>
+
+              <div>
+                <label for="lastName">Last name <span aria-hidden="true">*</span></label>
+                <input id="lastName" name="lastName" type="text" placeholder="e.g. Doe" required autocomplete="family-name" minlength="2" maxlength="40">
+              </div>
+
+              <div>
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="+254 700 000000" pattern="^\+?[0-9 \-()]{7,20}$" autocomplete="tel">
+                <small class="note">Format: country code + number (validation via pattern).</small>
+              </div>
+
+              <div>
+                <label for="dob">Date of birth</label>
+                <input id="dob" name="dob" type="date" max="2007-12-31" autocomplete="bday">
+              </div>
+
+              <div>
+                <label for="website">Website</label>
+                <input id="website" name="website" type="url" placeholder="https://example.com" autocomplete="url">
+              </div>
+
+            </div>
+          </fieldset>
+
+         
+          <fieldset>
+            <legend>Address</legend>
+            <label for="address1">Address line 1 <span aria-hidden="true">*</span></label>
+            <input id="address1" name="address1" type="text" placeholder="Street address, P.O. box" required autocomplete="street-address">
+
+            <div class="two-col" style="margin-top:.5rem">
+              <div>
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="Nairobi" autocomplete="address-level2">
+              </div>
+              <div>
+                <label for="postal">Postal code</label>
+                <input id="postal" name="postal" type="text" placeholder="00100" autocomplete="postal-code" pattern="[0-9A-Za-z \-]{3,10}">
+              </div>
+            </div>
+          </fieldset>
+
+  
+          <fieldset>
+            <legend>Account</legend>
+            <label for="username">Username <span aria-hidden="true">*</span></label>
+            <input id="username" name="username" type="text" placeholder="choose-a-username" required minlength="4" maxlength="20" autocomplete="username">
+
+            <label for="password" style="margin-top:.5rem">Password <span aria-hidden="true">*</span></label>
+            <input id="password" name="password" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password">
+
+            <label for="confirmPassword" style="margin-top:.5rem">Confirm password <span aria-hidden="true">*</span></label>
+            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat password" required minlength="8" autocomplete="new-password">
+
+            
+          </fieldset>
+
+  
+          <fieldset>
+            <legend>Order</legend>
+            <div class="two-col">
+              <div>
+                <label for="product">Product</label>
+                <select id="product" name="product" autocomplete="off">
+                  <option value="classic">Classic Car Model</option>
+                  <option value="bike">Motorbike Collectible</option>
+                  <option value="poster">Framed Poster</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="quantity">Quantity</label>
+                <input id="quantity" name="quantity" type="number" min="1" max="100" value="1" required>
+              </div>
+
+              <div>
+                <label for="color">Preferred color</label>
+                <input id="color" name="color" type="color" value="#2563eb" title="Choose a color">
+              </div>
+
+              <div>
+                <label for="delivery">Delivery time</label>
+                <input id="delivery" name="delivery" type="time" step="300">
+              </div>
+
+              <div>
+                <label for="shipDate">Ship date</label>
+                <input id="shipDate" name="shipDate" type="datetime-local">
+              </div>
+
+              <div>
+                <label for="gift">Gift wrap?</label>
+                <div style="display:flex;gap:.5rem;align-items:center">
+                  <input id="gift" name="gift" type="checkbox" value="yes">
+                  <label for="gift" class="note" style="margin:0">Yes, please</label>
+                </div>
+              </div>
+
+            </div>
+
+            <label for="notes" style="margin-top:.5rem">Order notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Optional instructions" maxlength="500"></textarea>
+          </fieldset>
+
+     
+          <fieldset>
+            <legend>Files & Payment</legend>
+            <label for="attachment">Upload reference (images/PDF)</label>
+            <input id="attachment" name="attachment" type="file" accept="image/*,.pdf" aria-describedby="fileHelp">
+            <small id="fileHelp" class="note">Allowed: images and PDFs. Max file size enforced on server.</small>
+
+            <label for="card" style="margin-top:.5rem">Card number (readonly demo)</label>
+            <input id="card" name="card" type="text" value="**** **** **** 1234" readonly aria-readonly="true">
+
+            <label for="amount">Donation amount</label>
+            <input id="amount" name="amount" type="range" min="0" max="1000" step="5" value="50" oninput="amountOut.value=amount.value">
+            <output id="amountOut">50</output>
+          </fieldset>
+
+          <input type="hidden" name="formVersion" value="1.0">
+
+          <div class="actions" style="margin-top:1rem">
+            <button type="submit" style="background:var(--accent);color:#fff;padding:.6rem 1rem;border:none;border-radius:6px">Submit</button>
+            <button type="reset" style="padding:.5rem 0.9rem;border-radius:6px">Reset</button>
+            <p class="note" style="margin:0 .5rem">Or press <kbd>Enter</kbd> to submit.</p>
+          </div>
+        </form>
+      </section>
+
+      <aside class="card" aria-labelledby="summary-heading">
+        <h3 id="summary-heading">Reference content</h3>
+
+        <section>
+          <h4>Media</h4>
+          <div class="media">
+            <figure>
+              <img src="https://via.placeholder.com/600x300.png?text=Product+Hero" alt="Product hero image" class="responsive">
+        
+            </figure>
+
+            <video controls preload="metadata" width="320">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
+        <section style="margin-top:1rem">
+          <h4>Quick lists</h4>
+          <p class="note">Unordered and ordered lists for semantic content:</p>
+          <ul>
+            <li>Features
+              <ul>
+                <li>HTML5 validation</li>
+                <li>Accessible labels</li>
+                <li>Responsive layout</li>
+              </ul>
+            </li>
+            <li>Supported media: images, video, file uploads</li>
+            <li>Form controls: many input types demonstrated</li>
+          </ul>
+
+          <ol style="margin-top:.5rem">
+            <li>Fill the required fields marked with *</li>
+            <li>Upload any supporting files</li>
+            <li>Submit the form</li>
+          </ol>
+        </section>
+
+        <section style="margin-top:1rem">
+          <h4>Inventory Table</h4>
+          <table aria-describedby="tableDesc">
+            <caption id="tableDesc">Inventory snapshot</caption>
+            <thead>
+              <tr><th>SKU</th><th>Product</th><th>Qty</th><th>Price (KSH)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>CC-001</td><td>1969 Harley Ultra</td><td>793</td><td>ksh245000</td></tr>
+              <tr><td>CC-002</td><td>2001 Ferrari Enzo</td><td>360</td><td>ksh15000000</td></tr>
+              <tr><td>CC-003</td><td>1996 Moto Guzzi</td><td>681</td><td>ksh890050</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+      </aside>
+    </div>
+
+
+  </main>
+
+
+  <script>
+
+    (function(){
+      const form = document.getElementById('enhancedForm');
+      const pwd = document.getElementById('password');
+      const confirmPwd = document.getElementById('confirmPassword');
+
+      function validatePasswords(){
+        if(confirmPwd.value === ''){ confirmPwd.setCustomValidity(''); return; }
+        if(pwd.value !== confirmPwd.value){
+          confirmPwd.setCustomValidity('Passwords do not match');
+        } else {
+          confirmPwd.setCustomValidity('');
+        }
+      }
+
+      pwd.addEventListener('input', validatePasswords);
+      confirmPwd.addEventListener('input', validatePasswords);
+
+      form.addEventListener('submit', function(e){
+
+        if(!form.checkValidity()){
+     
+          return;
+        }
+        e.preventDefault();
+        alert('Demo form validated and would be submitted to server.');
+      });
+    })();
+  </script>
+</body>
+</html>
